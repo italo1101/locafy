@@ -15,9 +15,10 @@ export interface IListingsParams {
 }
 
 export default async function getListings(
-   params: IListingsParams
+    params: IListingsParams | Promise<IListingsParams>
 ) {
     try {
+        const resolvedParams = await params;
 
         const {
             userId,
@@ -28,7 +29,7 @@ export default async function getListings(
             startDate,
             endDate,
             category
-        } = params;
+        } = resolvedParams;
 
         const query: Prisma.ListingWhereInput = {};
 

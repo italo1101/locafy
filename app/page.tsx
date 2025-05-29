@@ -6,28 +6,27 @@ import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
 
 interface HomeProps {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: { [key: string]: string | string[] | undefined };
 }
 
 const Home = async ({ searchParams }: HomeProps) => {
-  const params = await searchParams;
-
+  // Converte searchParams em IListingsParams conforme necessário.
   const listingsParams: IListingsParams = {
-    category: typeof params.category === 'string' ? params.category : undefined,
-    locationValue: typeof params.locationValue === 'string' ? params.locationValue : undefined,
-    guestCount: typeof params.guestCount === 'string' ? Number(params.guestCount) : undefined,
-    roomCount: typeof params.roomCount === 'string' ? Number(params.roomCount) : undefined,
-    bathroomCount: typeof params.bathroomCount === 'string' ? Number(params.bathroomCount) : undefined,
-    wifiCount: typeof params.wifiCount === 'string' ? Number(params.wifiCount) : undefined,
-    acCount: typeof params.acCount === 'string' ? Number(params.acCount) : undefined,
-    startDate: typeof params.startDate === 'string' ? params.startDate : undefined,
-    endDate: typeof params.endDate === 'string' ? params.endDate : undefined,
+    category: typeof searchParams.category === 'string' ? searchParams.category : undefined,
+    locationValue: typeof searchParams.locationValue === 'string' ? searchParams.locationValue : undefined,
+    guestCount: searchParams.guestCount ? Number(searchParams.guestCount) : undefined,
+    roomCount: searchParams.roomCount ? Number(searchParams.roomCount) : undefined,
+    bathroomCount: searchParams.bathroomCount ? Number(searchParams.bathroomCount) : undefined,
+    wifiCount: searchParams.wifiCount ? Number(searchParams.wifiCount) : undefined,
+    acCount: searchParams.acCount ? Number(searchParams.acCount) : undefined,
+    startDate: typeof searchParams.startDate === 'string' ? searchParams.startDate : undefined,
+    endDate: typeof searchParams.endDate === 'string' ? searchParams.endDate : undefined,
   };
 
   const listings = await getListings(listingsParams);
   const currentUser = await getCurrentUser();
 
-  if (!listings || listings.length === 0) {
+  if (listings.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -53,9 +52,9 @@ const Home = async ({ searchParams }: HomeProps) => {
         >
           {listings.map((listing) => (
             <ListingCard
+              currentUser={currentUser}
               key={listing.id}
               data={listing}
-              currentUser={currentUser}
             />
           ))}
         </div>
