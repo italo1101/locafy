@@ -49,18 +49,30 @@ Agora, aqui está o `README.md` finalizado para você colocar no GitHub:
 
 ## 🗂️ Estrutura de Pastas
 
-```
+`locafy/
+├── app/                        # Rotas e páginas com o App Router
+│   └── (subpastas de rotas)
+├── pages/                      # Arquivos auxiliares de rota
+├── prisma/                     # Configuração do Prisma + schema.prisma
+│   └── schema.prisma
+├── public/                     # Arquivos públicos (imagens, favicon, etc.)
+├── .env.local                  # Variáveis de ambiente (não versionar)
+├── .env.example                # Modelo de variáveis de ambiente
+├── .gitignore
+├── eslint.config.mjs
+├── jest.config.js
+├── mercadopago.d.ts
+├── middleware.ts
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── estrutura.txt              # (opcional, usado para referência interna)
+└── README.md
 
-.
-├── app/                  # Rotas do App Router
-├── pages/                # Páginas específicas
-├── prisma/               # Configuração e schema do Prisma
-├── public/               # Arquivos públicos
-├── .env.local            # Variáveis de ambiente (não versionar)
-├── README.md             # Este arquivo
-└── ...
-
-````
 
 ---
 
