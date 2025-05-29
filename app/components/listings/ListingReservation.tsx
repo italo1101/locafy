@@ -4,7 +4,6 @@ import { Range } from 'react-date-range';
 import Calendar from '../inputs/calendar';
 import Button from '../Button';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 interface ListingReservationProps {
   price: number;
@@ -27,7 +26,6 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
   disabledDates,
   listingId
 }) => {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const handlePayment = async () => {
@@ -55,6 +53,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
         setLoading(false);
         alert('Erro ao iniciar pagamento');
       }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setLoading(false);
       alert('Erro de conexão ou ao criar reserva');
