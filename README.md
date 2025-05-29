@@ -1,36 +1,142 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 📘 README.md Atualizado
 
-## Getting Started
+Agora, aqui está o `README.md` finalizado para você colocar no GitHub:
 
-First, run the development server:
+```markdown
+# 📍 Locafy
+
+**Locafy** é uma plataforma web desenvolvida com **Next.js 14** e **MongoDB** que permite aos usuários **publicar locais para aluguel** e **realizar reservas** com **pagamento integrado via Mercado Pago**.
+
+> ✅ Projeto em produção: [https://locafyproject.netlify.app](https://locafyproject.netlify.app)
+
+---
+
+## ✨ Funcionalidades
+
+- Login com conta do Google (NextAuth)
+- Cadastro de locais com imagem, descrição, valor e datas disponíveis
+- Sistema de reservas com pagamento via Mercado Pago (checkout pro)
+- Upload de imagens via Cloudinary
+- Painel do usuário com suas reservas e locais publicados
+- Atualização automática da reserva após pagamento aprovado
+- Totalmente responsivo com Tailwind CSS
+- Integração com MongoDB e Prisma ORM
+
+---
+
+## 🧭 Fluxo de Uso
+
+1. O usuário entra com conta Google
+2. Publica ou reserva um local disponível
+3. É redirecionado para o checkout do Mercado Pago
+4. Após o pagamento, o status da reserva é atualizado automaticamente via webhook
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+- [Next.js 14](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [MongoDB Atlas](https://www.mongodb.com/)
+- [Prisma ORM](https://www.prisma.io/)
+- [NextAuth](https://next-auth.js.org/)
+- [Cloudinary](https://cloudinary.com/)
+- [Mercado Pago](https://www.mercadopago.com.br/)
+- [Jest](https://jestjs.io/)
+
+---
+
+## 🗂️ Estrutura de Pastas
+
+```
+
+.
+├── app/                  # Rotas do App Router
+├── pages/                # Páginas específicas
+├── prisma/               # Configuração e schema do Prisma
+├── public/               # Arquivos públicos
+├── .env.local            # Variáveis de ambiente (não versionar)
+├── README.md             # Este arquivo
+└── ...
+
+````
+
+---
+
+## ⚙️ Como Rodar o Projeto Localmente
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/italo1101locafy.git
+cd locafy
+````
+
+### 2. Instale as dependências
+
+```bash
+npm install
+```
+
+### 3. Configure as variáveis de ambiente
+
+Crie o arquivo `.env.local` com base em `.env.example`:
+
+```bash
+cp .env.example .env.local
+```
+
+Preencha os valores de acordo com as suas credenciais (ou use valores de teste fornecidos pelo desenvolvedor).
+
+### 4. Rode a aplicação
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔐 Variáveis de Ambiente
 
-## Learn More
+Todas as variáveis obrigatórias estão descritas no arquivo `.env.example`. Elas incluem:
 
-To learn more about Next.js, take a look at the following resources:
+* Conexão com MongoDB
+* Autenticação Google
+* Chave secreta do NextAuth
+* Token do Mercado Pago (modo sandbox)
+* Cloudinary para upload de imagens
+* URL base do frontend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✅ Testes
 
-## Deploy on Vercel
+Execute os testes com:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run test
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📌 Melhorias Futuras (TODO)
+
+* Filtros por cidade e faixa de preço
+* Sistema de avaliação/comentários
+* Upload múltiplo de imagens
+* Notificações por e-mail
+* Tradução multilíngue (i18n)
+
+---
+
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença **MIT** – sinta-se à vontade para usar, estudar e modificar.
+
+```
